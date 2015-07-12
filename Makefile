@@ -1,16 +1,15 @@
 .PHONY: clean
 
-ALL: mangal
+ALL: mangal exec
 
-mangal: exec
-	./manage.py syncdb
+mangal: mangal_ref
+	cp mangal_ref mangal
 
 requirements:
 	pip install django==1.7
 	pip install django-tastypie
 
 clean:
-	# Remove pyc files
 	find . -name "*.pyc" | xargs rm
 
 exec:
