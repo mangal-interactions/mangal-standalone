@@ -7,8 +7,7 @@ def index(request):
     <p>Now, you can see the API at <code>http://localhost:8000/api/v1/?format=json</code></p>
     <p>If you use the standalone version of mangal to test the upload of your data, use <code>http://localhost:8000</code> as the
     API adress in R or python!</p>
-    <p>You will need the API key to get started on the upload. Simply go to <code>http://localhost:8000/admin/tastypie/apikey/</code>, and
-    copy the content of the <code>Key</code> field.</p>
+    <p>The default user name is <code>test</code>, and the default API key is <code>9d00823baa5be60d788d079143d9785a4ffd3eec</code></p>
     </body></html>
     """ % now
     return HttpResponse(html)
