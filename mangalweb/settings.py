@@ -18,7 +18,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': './mangal',                      # Or path to database file if using sqlite3.
+        'NAME': 'mangal',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
@@ -108,10 +108,10 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'mangalw.urls'
+ROOT_URLCONF = 'mangalweb.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'mangalw.wsgi.application'
+WSGI_APPLICATION = 'mangalweb.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -132,7 +132,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'tastypie',
     # TIM WUZ HERE
-    'mangalw',
+    'mangalweb',
     'api',
 )
 

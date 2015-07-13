@@ -14,3 +14,7 @@ clean:
 
 exec:
 	chmod +x manage.py
+
+reset:
+	git fetch --all
+	git reset --hard origin/master

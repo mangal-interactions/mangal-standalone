@@ -58,7 +58,7 @@ class MangalAuthorization(Authorization):
         return self.is_object_readable(bundle.obj, bundle)
 
     def delete_list(self, object_list, bundle):
-        return bundle.request.user.is_authenticated()
+        return [ob for ob in object_list if self.is_object_readable(ob, bundle)]
 
     def delete_detail(self, object_list, bundle):
         return True
@@ -121,7 +121,8 @@ class RefResource(ModelResource):
         authorization = MangalAuthorization()
         always_return_data = True
         resource_name = 'reference'
-        allowed_methods = ['get','post','patch', 'delete']
+        list_allowed_methods = ['get']
+        detail_allowed_methods = ['get', 'post', 'patch', 'delete']
 
 
 class TraitResource(ModelResource):
@@ -136,7 +137,8 @@ class TraitResource(ModelResource):
         authorization = MangalAuthorization()
         always_return_data = True
         resource_name = 'trait'
-        allowed_methods = ['get','post','patch', 'delete']
+        list_allowed_methods = ['get']
+        detail_allowed_methods = ['get', 'post', 'patch', 'delete']
 
 
 class EnvironmentResource(ModelResource):
@@ -151,7 +153,8 @@ class EnvironmentResource(ModelResource):
         authorization = MangalAuthorization()
         always_return_data = True
         resource_name = 'environment'
-        allowed_methods = ['get','post','patch', 'delete']
+        list_allowed_methods = ['get']
+        detail_allowed_methods = ['get', 'post', 'patch', 'delete']
 
 
 class TaxaResource(ModelResource):
@@ -187,7 +190,8 @@ class TaxaResource(ModelResource):
                 'owner': ALL,
                 'filter': ALL,
                 }
-        allowed_methods = ['get','post','patch', 'delete']
+        list_allowed_methods = ['get']
+        detail_allowed_methods = ['get', 'post', 'patch', 'delete']
 
 class ItemResource(ModelResource):
     taxa = fields.ForeignKey(TaxaResource, 'taxa', full=True, help_text = "The identifier (or URI) of the taxa object to which the item belongs.")
@@ -220,7 +224,8 @@ class ItemResource(ModelResource):
                 'level': ALL,
                 }
         resource_name = 'item'
-        allowed_methods = ['get','post','patch', 'delete']
+        list_allowed_methods = ['get']
+        detail_allowed_methods = ['get', 'post', 'patch', 'delete']
 
 
 class InteractionResource(ModelResource):
@@ -270,7 +275,8 @@ class InteractionResource(ModelResource):
                 'description': ALL,
                 }
         resource_name = 'interaction'
-        allowed_methods = ['get','post','patch', 'delete']
+        list_allowed_methods = ['get']
+        detail_allowed_methods = ['get', 'post', 'patch', 'delete']
 
 
 class NetworkResource(ModelResource):
@@ -302,7 +308,8 @@ class NetworkResource(ModelResource):
                 'latitude': ALL_WITH_RELATIONS,
                 'longitude': ALL_WITH_RELATIONS,
                 }
-        allowed_methods = ['get','post','patch', 'delete']
+        list_allowed_methods = ['get']
+        detail_allowed_methods = ['get', 'post', 'patch', 'delete']
 
 
 class DatasetResource(ModelResource):
@@ -331,4 +338,5 @@ class DatasetResource(ModelResource):
                 'description': ALL,
                 'name': ALL,
                 }
-        allowed_methods = ['get','post','patch', 'delete']
+        list_allowed_methods = ['get']
+        detail_allowed_methods = ['get', 'post', 'patch', 'delete']
