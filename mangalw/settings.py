@@ -133,7 +133,7 @@ INSTALLED_APPS = (
     'tastypie',
     # TIM WUZ HERE
     'mangalw',
-    'api',
+    'test_api',
 )
 
 # A sample logging configuration. The only tangible logging
