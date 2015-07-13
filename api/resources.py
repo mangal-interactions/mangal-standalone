@@ -121,8 +121,8 @@ class RefResource(ModelResource):
         authorization = MangalAuthorization()
         always_return_data = True
         resource_name = 'reference'
-        list_allowed_methods = ['get']
-        detail_allowed_methods = ['get', 'post', 'patch', 'delete']
+        #list_allowed_methods = ['get']
+        #detail_allowed_methods = ['get', 'post', 'patch', 'delete']
 
 
 class TraitResource(ModelResource):
