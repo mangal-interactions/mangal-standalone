@@ -110,11 +110,6 @@ class UserResource(ModelResource):
 
 
 class RefResource(ModelResource):
-    owner = fields.ForeignKey(UserResource, 'owner', full=True, help_text = "URI of the profile of the owner. When objects are uploaded from the R package, this field is set automatically.")
-    def dehydrate(self, bundle):
-        bundle.data['id'] = str(bundle.data['id'])
-        bundle.data['owner'] = str(bundle.data['owner'].data['username'])
-        return bundle
     class Meta:
         queryset = Ref.objects.all()
         authentication = MultiAuthentication(ApiKeyAuthentication(), BasicAuthentication(), Authentication())
@@ -122,7 +117,11 @@ class RefResource(ModelResource):
         always_return_data = True
         resource_name = 'reference'
         allowed_methods = ['get', 'post', 'patch', 'delete']
-
+    owner = fields.ForeignKey(UserResource, 'owner', full=True, help_text = "URI of the profile of the owner. When objects are uploaded from the R package, this field is set automatically.")
+    def dehydrate(self, bundle):
+        bundle.data['id'] = str(bundle.data['id'])
+        bundle.data['owner'] = str(bundle.data['owner'].data['username'])
+        return bundle
 
 class TraitResource(ModelResource):
     owner = fields.ForeignKey(UserResource, 'owner', full=True)
