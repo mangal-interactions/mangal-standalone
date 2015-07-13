@@ -108,10 +108,10 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'mangalweb.urls'
+ROOT_URLCONF = 'mangalw.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'mangalweb.wsgi.application'
+WSGI_APPLICATION = 'mangalw.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -132,7 +132,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'tastypie',
     # TIM WUZ HERE
-    'mangalweb',
+    'mangalw',
     'api',
 )
 
