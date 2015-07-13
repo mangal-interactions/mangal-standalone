@@ -121,7 +121,7 @@ class RefResource(ModelResource):
         authorization = MangalAuthorization()
         always_return_data = True
         resource_name = 'reference'
-        allowed_methods = ['get', 'post']
+        allowed_methods = ['get', 'post', 'patch', 'delete']
 
 
 class TraitResource(ModelResource):
@@ -136,8 +136,7 @@ class TraitResource(ModelResource):
         authorization = MangalAuthorization()
         always_return_data = True
         resource_name = 'trait'
-        list_allowed_methods = ['get']
-        detail_allowed_methods = ['get', 'post', 'patch', 'delete']
+        allowed_methods = ['get', 'post', 'patch', 'delete']
 
 
 class EnvironmentResource(ModelResource):
@@ -152,8 +151,7 @@ class EnvironmentResource(ModelResource):
         authorization = MangalAuthorization()
         always_return_data = True
         resource_name = 'environment'
-        list_allowed_methods = ['get']
-        detail_allowed_methods = ['get', 'post', 'patch', 'delete']
+        allowed_methods = ['get', 'post', 'patch', 'delete']
 
 
 class TaxaResource(ModelResource):
@@ -189,8 +187,7 @@ class TaxaResource(ModelResource):
                 'owner': ALL,
                 'filter': ALL,
                 }
-        list_allowed_methods = ['get']
-        detail_allowed_methods = ['get', 'post', 'patch', 'delete']
+        allowed_methods = ['get', 'post', 'patch', 'delete']
 
 class ItemResource(ModelResource):
     taxa = fields.ForeignKey(TaxaResource, 'taxa', full=True, help_text = "The identifier (or URI) of the taxa object to which the item belongs.")
@@ -223,8 +220,7 @@ class ItemResource(ModelResource):
                 'level': ALL,
                 }
         resource_name = 'item'
-        list_allowed_methods = ['get']
-        detail_allowed_methods = ['get', 'post', 'patch', 'delete']
+        allowed_methods = ['get', 'post', 'patch', 'delete']
 
 
 class InteractionResource(ModelResource):
@@ -274,8 +270,7 @@ class InteractionResource(ModelResource):
                 'description': ALL,
                 }
         resource_name = 'interaction'
-        list_allowed_methods = ['get']
-        detail_allowed_methods = ['get', 'post', 'patch', 'delete']
+        allowed_methods = ['get', 'post', 'patch', 'delete']
 
 
 class NetworkResource(ModelResource):
@@ -307,8 +302,7 @@ class NetworkResource(ModelResource):
                 'latitude': ALL_WITH_RELATIONS,
                 'longitude': ALL_WITH_RELATIONS,
                 }
-        list_allowed_methods = ['get']
-        detail_allowed_methods = ['get', 'post', 'patch', 'delete']
+        allowed_methods = ['get', 'post', 'patch', 'delete']
 
 
 class DatasetResource(ModelResource):
@@ -337,5 +331,4 @@ class DatasetResource(ModelResource):
                 'description': ALL,
                 'name': ALL,
                 }
-        list_allowed_methods = ['get']
-        detail_allowed_methods = ['get', 'post', 'patch', 'delete']
+        allowed_methods = ['get', 'post', 'patch', 'delete']
