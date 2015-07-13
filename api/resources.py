@@ -117,7 +117,6 @@ class RefResource(ModelResource):
         return bundle
     class Meta:
         queryset = Ref.objects.all()
-        allowed_methods = ['get', 'post', 'patch', 'delete']
         authentication = MultiAuthentication(ApiKeyAuthentication(), BasicAuthentication(), Authentication())
         authorization = MangalAuthorization()
         always_return_data = True
