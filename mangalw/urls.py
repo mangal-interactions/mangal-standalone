@@ -22,6 +22,7 @@ vtest_api.register(ItemResource())
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'base.views.index', name='index'),
+    url(r'^globi.json$', 'base.views.globi', name='globi'),
     url(r'^api/', include(vtest_api.urls)),
 
     # Uncomment the admin/doc line below to enable admin documentation:
